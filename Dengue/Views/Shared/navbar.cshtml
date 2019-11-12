@@ -1,0 +1,71 @@
+﻿<!--Bootstrap Navbar-->
+<style>
+.navbar {
+    transition: background-color 0.4s linear 0s;
+}
+
+.navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 1.5em;
+    color: white;
+    transition: background-color 0.4s linear 0s;
+}
+
+.navbar-brand.scrolled {
+    color: #85CEBB;
+    transition: background-color 0.4s linear 0s;
+}
+</style>
+
+<nav class="navbar navbar-dark fixed-top navbar-expand-sm">
+    <a class="navbar-brand" href="@Url.Action("Index", "Home")">dengue.live</a>
+    <button class="navbar-toggler" type="button" onclick="toggleBackground()" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+            <li class="nav-item ml-4">
+                <a class="nav-link" href="~/how">How it works</a>
+            </li>
+            <li class="nav-item ml-4">
+                <a class="nav-link" href="~/prevention">Prevention</a>
+            </li>
+            <li class="nav-item ml-4">
+                <a class="nav-link" href="~/risk">Risk Factors</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<script>
+    // Turns background white when hamburger is pressed at top
+    function toggleBackground() {
+        if ($(this).scrollTop() < 400) {
+            if ($('.navbar-toggler').attr('aria-expanded') == "false") {
+                $('.navbar').removeClass('navbar-dark bg-transparent').addClass('navbar-light bg-white');
+                $('.navbar-brand').addClass('scrolled');
+            }
+            else {
+              $('.navbar').removeClass('navbar-light bg-white').addClass('navbar-dark bg-transparent');
+              $('.navbar-brand').removeClass('scrolled');
+            }
+        }
+    }
+
+    $(document).ready(function () {
+        // Transition effect for navbar 
+        $(window).scroll(function() {
+          // checks if window is scrolled more than 400px
+            if ($(this).scrollTop() > 400) {
+                $('.navbar').removeClass('navbar-dark bg-transparent').addClass('navbar-light bg-white');
+                $('.navbar-brand').addClass('scrolled');
+            }
+            else {
+              $('.navbar').removeClass('navbar-light bg-white').addClass('navbar-dark bg-transparent');
+              $('.navbar-brand').removeClass('scrolled');
+            }
+        });
+});
+</script>

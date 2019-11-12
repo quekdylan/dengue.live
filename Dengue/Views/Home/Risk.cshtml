@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "Risk";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    #header-img {
+        display: flex;
+        align-items: center;
+        height: 500px;
+        background-color: #85CEBB;
+    }
+
+    #header-img h1 {
+        text-align: left;
+        margin-left: 80px;
+        color: white;
+        font-family: 'Segoe UI';
+        font-weight: 700;
+    }
+
+    /*MOBILE*/
+    @@media screen and (max-width: 640px) {
+        #header-img {
+            justify-content: center;
+        }
+
+        #header-img h1 {
+            margin-left: 0;
+            text-align: center;
+            font-size: 2em;
+        }
+    }
+</style>
+
+<div id="header-img">
+    <h1>Risk Factors</h1>
+</div>
+

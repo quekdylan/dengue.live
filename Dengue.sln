@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29409.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dengue", "Dengue\Dengue.csproj", "{A6519C62-912C-4CFB-88F0-06EC33589744}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6519C62-912C-4CFB-88F0-06EC33589744}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6519C62-912C-4CFB-88F0-06EC33589744}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6519C62-912C-4CFB-88F0-06EC33589744}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6519C62-912C-4CFB-88F0-06EC33589744}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1FD22DB0-622A-4DAC-B3B0-3E1A39E1CC9E}
+	EndGlobalSection
+EndGlobal
