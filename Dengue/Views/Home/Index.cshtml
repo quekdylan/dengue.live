@@ -1,20 +1,19 @@
 ﻿
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <style>
     body {
         font-family: sans-serif;
-        background: #eeeeee;
     }
 
     canvas {
         background-color: #85CEBB;
     }
 
-    #header-img{
+    #header-img {
         position: relative;
         text-align: center;
         color: white;
@@ -34,8 +33,9 @@
     #map {
         width: 100%;
         height: 600px;
+        margin-bottom: 100px;
         border-radius: 20px;
-        background-color: #dddddd;
+        background-color: #eeeeee;
     }
 
     h1 {
@@ -60,7 +60,47 @@
     text-decoration: none;
     }
 
+    p {
+        width: 50%;
+    }
 
+    .card {
+        border-radius: 10px;
+    }
+
+    #predictionContainer{
+        display: flex;
+        flex-flow: row wrap;
+        margin-bottom: 100px;
+    }
+
+    #currentLocationCard{
+        width: 400px;
+        padding: 50px;
+        height: 500px;
+        margin-right: 20px;
+    }
+
+    #predictionsList {
+        width: 60%;
+    }
+
+    #predictionsList div {
+        width: 100%;
+        height: 100px;
+    }
+
+    #preventionCard{
+        height: 350px;
+        width: 100%;
+        padding: 80px;
+        border-radius: 20px;
+        background-color: darkslategrey;
+    }
+
+    ul li {
+        font-size: 2em;
+    }
     /*MOBILE*/
     @@media screen and (max-width: 640px) {
 
@@ -74,7 +114,33 @@
         left: 5%;
         width: 90%;
         text-align: center;
-        font-size: 2em;
+        font-size: 2.5em;
+        }
+
+        h1 {
+            width: 100%;
+            font-size: 2.5em;
+        }
+
+        h4 {
+            font-size: 1em;
+        }
+
+        p {
+            width: 100%;
+        }
+
+        #currentLocationCard {
+            width:100%;
+            margin: 0 0 50px 0;
+        }
+
+        #predictionsList {
+            width: 100%;
+        }
+
+        #preventionCard {
+            padding: 50px;
         }
     }
 </style>
@@ -84,24 +150,82 @@
     <div id="title">Under Construction</div>
 </div>
 <div id="main">
-    <h1>What is <span style="color:#85CEBB">dengue.live</span>?</h1>
-    <p style="width: 50%;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-    laboris nisi ut aliquip ex ea commodo consequat.</p>
-    <a href="@Url.Action("How", "Home")">Learn more</a>
+    <h1>What is dengue.live?</h1>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat.
+    </p>
+    <a href="@Url.Action("About", "Home")">Learn more</a>
+
     <br />
     <br />
     <br />
+
     <h1>Predictions</h1>
     <div id="map">
 
     </div>
+    <div id="predictionContainer">
+        <div id="currentLocationCard" class="card">
+            <h1>Current Location</h1>
+            <div id="tempGetCurrentLocation">
+                <center>
+                    <br />
+                    <p>To view predictions for your area, please enable location services</p>
+                    <button class="btn btn-info" type="button" onclick="getLocation()">
+                        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                        Get Location
+                    </button>
+                </center>
+            </div>
+            <div>
+                <p id="currentLocation"></p>
+            </div>
+        </div>
+        <div id="predictionsList">
+            <ul class="list-group">
+                <li class="list-group-item">A simple list group item</li>
+                <li class="list-group-item">A simple list group item</li>
+                <li class="list-group-item">A simple list group item</li>
+                <li class="list-group-item">A simple list group item</li>
+                <li class="list-group-item">A simple list group item</li>
+            </ul>
+        </div>
+    </div>
+    <div id="preventionCard">
+        <h1 style="color: #85CEBB; margin:0;">Play your part</h1>
+        <h4 style="color:lightgrey; max-width: 600px">Take preventive measures to protect yourself and others from dengue</h4>
+        <br />
+        <a href="@Url.Action("Prevention", "Home")" style="font-weight:600;" class="btn btn-outline-info">Learn More</a>
+    </div>
+
 </div>
+
+
+
 
 <script>
     // SCROLLREVEAL ///////////////////////////////////////
     ScrollReveal().reveal('#title', { distance: '20px', origin: 'top', delay: 200, duration: 1500 });
+
+
+    // GEOLOCATION ////////////////////////////////////////
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
+
+    function showPosition(position) {
+        document.getElementById("currentLocation").innerHTML = "Your location" + position.coords.latitude + 
+            ", " + position.coords.longitude;
+        document.getElementById("tempGetCurrentLocation").style.display = "none";
+    }
+
 
     // BACKGROUND ANIMATION ///////////////////////////////
     var canvas = document.getElementById("canvas"),

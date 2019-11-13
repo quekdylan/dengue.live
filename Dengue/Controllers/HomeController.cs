@@ -19,8 +19,8 @@ namespace Dengue.Controllers
             return View();
         }
 
-        [Route("/how")]
-        public ActionResult How()
+        [Route("/about")]
+        public ActionResult About()
         {
             return View();
         }
