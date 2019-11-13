@@ -149,24 +149,27 @@
     <canvas id="canvas"></canvas>
     <div id="title">Under Construction</div>
 </div>
+
 <div id="main">
-    <h1>What is dengue.live?</h1>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat.
-    </p>
-    <a href="@Url.Action("About", "Home")">Learn more</a>
-
-    <br />
-    <br />
-    <br />
-
-    <h1>Predictions</h1>
-    <div id="map">
-
+    <div id="whatIsContainer" style="margin-bottom: 100px;">
+        <h1>What is dengue.live?</h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <a href="@Url.Action("About", "Home")">Learn more</a>
     </div>
+
+    <div id="mapContainer">
+        <h1>Predictions</h1>
+        <div id="map">
+            <div class='tableauPlaceholder' id='viz1573621920585' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;De&#47;DengueMap&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='views&#47;DengueMap&#47;Sheet1?:embed=y&amp;:display_count=y&amp;publish=yes' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;De&#47;DengueMap&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>
+            <script type='text/javascript'>var divElement = document.getElementById('viz1573621920585'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
+        </div>
+    </div>
+
     <div id="predictionContainer">
         <div id="currentLocationCard" class="card">
             <h1>Current Location</h1>
@@ -180,10 +183,12 @@
                     </button>
                 </center>
             </div>
+
             <div>
                 <p id="currentLocation"></p>
             </div>
         </div>
+        
         <div id="predictionsList">
             <ul class="list-group">
                 <li class="list-group-item">A simple list group item</li>
@@ -194,6 +199,7 @@
             </ul>
         </div>
     </div>
+
     <div id="preventionCard">
         <h1 style="color: #85CEBB; margin:0;">Play your part</h1>
         <h4 style="color:lightgrey; max-width: 600px">Take preventive measures to protect yourself and others from dengue</h4>
@@ -209,6 +215,13 @@
 <script>
     // SCROLLREVEAL ///////////////////////////////////////
     ScrollReveal().reveal('#title', { distance: '20px', origin: 'top', delay: 200, duration: 1500 });
+    ScrollReveal().reveal('#whatIsContainer', { distance: '20px', origin: 'top', delay: 400, duration: 1500 });
+    ScrollReveal().reveal('#mapContainer', { distance: '20px', origin: 'top', delay: 200, duration: 1500 });
+    ScrollReveal().reveal('#currentLocationCard', { distance: '20px', origin: 'top', delay: 200, duration: 1500 });
+    ScrollReveal().reveal('#predictionsList', { distance: '20px', origin: 'top', delay: 400, duration: 1500 });
+    ScrollReveal().reveal('#preventionCard h1', { distance: '20px', origin: 'top', delay: 200, duration: 1500 });
+    ScrollReveal().reveal('#preventionCard h4', { distance: '20px', origin: 'top', delay: 400, duration: 1500 });
+    ScrollReveal().reveal('#preventionCard a', { distance: '20px', origin: 'top', delay: 1000, duration: 1500 });
 
 
     // GEOLOCATION ////////////////////////////////////////
@@ -221,6 +234,16 @@
     }
 
     function showPosition(position) {
+        /*
+        lowDisplacement = -1
+        for station in stationList[1:]:
+
+        #Find displacement to determine closest location
+        displacement = math.sqrt(math.hypot(float(row[-2]) - float(station[1]), float(row[-1]) - float(station[2])))
+        if lowDisplacement > displacement or lowDisplacement == -1:
+            lowDisplacement = displacement
+            stationName = station[0]*/
+
         document.getElementById("currentLocation").innerHTML = "Your location" + position.coords.latitude + 
             ", " + position.coords.longitude;
         document.getElementById("tempGetCurrentLocation").style.display = "none";
