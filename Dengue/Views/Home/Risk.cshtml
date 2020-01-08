@@ -20,6 +20,64 @@
         font-weight: 700;
     }
 
+    #main {
+         margin: 50px 10%;
+         display: flex;
+         flex-flow: column wrap;
+    }
+
+    #main h1{
+        font-family: 'Montserrat';
+        font-weight: 700;
+        font-size: 3em;
+        color: #666666;
+    }
+
+    .upper, .lower {
+        width: 100%;
+        float:left;
+        text-align:center;
+    }
+
+    .uppersec {
+        margin: 50px 0;
+        padding: 40px;
+        width:40%;
+        text-align: left;
+        float:left;
+    }
+
+    .agetext {
+        margin: 50px 0;
+        padding: 40px;
+        width: 40%;
+        height: 300px;
+        border: 1px solid #000;
+        border-radius: 20px;
+        float: right;
+        display: block;
+        color: rgba(128, 128, 128, 1);
+    }
+
+    .lowersec {
+        margin: 50px 0;
+        padding: 40px;
+        width: 40%;
+        text-align: right;
+        float: right;
+    }
+
+    .bloodtext {
+        margin: 50px 0;
+        padding: 40px;
+        width: 40%;
+        height: 300px;
+        border: 1px solid #000;
+        border-radius: 20px;
+        float: left;
+        display: block;
+    }
+
     /*MOBILE*/
     @@media screen and (max-width: 640px) {
         #header-img {
@@ -31,10 +89,116 @@
             text-align: center;
             font-size: 2em;
         }
+
+        
+        #all {
+            width: 100%;
+        }
+        
+        .upper, .lower {
+            display:inline-grid;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .uppersec {
+           width: 100%;
+           flex-flow: wrap;
+           float:left;
+        }
+
+        .agetext {
+            width: 100%;
+            text-align: center;
+        }
+
+        .lowersec {
+            display:flex;
+            text-align: center;
+            width: 100%;
+            flex-flow:wrap;
+            float: left;
+        }
+
+        .bloodtext {
+            width: 100%;
+            justify-content: center;
+            float: right;
+            flex-wrap:wrap-reverse;
+            order: 2;
+        }
     }
 </style>
 
 <div id="header-img">
     <h1>Risk Factors</h1>
+</div>
+<div id="main">
+    <div class="alert alert-warning" role="alert">
+        Website is still incomplete. Some functions may not work as intended.
+    </div>
+    <br />
+    <div id="all">
+        <div class="upper">
+            <div class="uppersec">
+                <h1>1. Apparels</h1>
+                <h4 style="font-size: 25px; margin:0; padding:0;">
+                    Mosquitoes are attracted to dark colours (black/navy)
+                    as they are much easier for them to see.
+                </h4>
+            </div>
+            <div class="agetext"></div>
+        </div>
+
+        <div class="lower">
+            <div class="bloodtext"></div>
+            <div class="lowersec">
+                <h1>2. Blood Type</h1>
+                <h4 style="font-size: 25px; margin:0; padding:0;">Researchers have found that people with Type O blood are twice as attractive to mosquitoes than people with Type A. In addition, 85% of people produce a secretion that signals their blood type, which draws mosquito regardless of blood type.</h4>
+            </div>
+        </div>
+
+        <div class="upper">
+            <div class="uppersec">
+                <h1>3. Carbon Dioxide</h1>
+                <h4 style="font-size: 25px; margin:0; padding:0;">Mosquitoes can sense carbon dioxide up to 48 metres away, so the more you exhale the more attractive you are to mosquitoes especially people who are large.</h4>
+            </div>
+            <div class="agetext"></div>
+        </div>
+
+        <div class="lower">
+            <div class="bloodtext"></div>
+            <div class="lowersec">
+                <h1>4.Heat and Sweat</h1>
+                <h4 style="font-size: 25px; margin:0; padding:0;">Mosquitoes can sniff down victims through chemical compounds released in sweat, strenuous exercises increase the build-up of such compounds, another factor includes genetics making some people more prone to getting mosquito bites.</h4>
+            </div>
+        </div>
+
+        <div class="upper">
+            <div class="uppersec">
+                <h1>5.Skin Bacteria</h1>
+                <h4 style="font-size: 25px; margin:0; padding:0;">Researchers have shown that the types of bacteria on one’s skin can increase the chances of being bitten which explains why some mosquitoes are drawn to ankles and feet, which is teeming with bacteria.</h4>
+            </div>
+            <div class="agetext"></div>
+        </div>
+
+        <div class="lower">
+            <div class="bloodtext"></div>
+            <div class="lowersec">
+                <h1>6.Pregnancy</h1>
+                <h4 style="font-size: 25px; margin:0; padding:0;">Mosquitoes are more likely to bite women in late pregnancy as they exhaled 21 percent greater volume of breath which contains carbon dioxide than non-pregnant women and the abdomens of pregnant women were hotter which adds to the fact mosquitoes are attracted to warm bodies.</h4>
+            </div>
+        </div>
+
+        <div class="upper">
+            <div class="uppersec">
+                <h1>7.Beer</h1>
+                <h4 style="font-size: 25px; margin:0; padding:0;">Researchers has found that significantly more mosquitoes landed on participants who drank alcohol. They figured that an increased ethanol content in sweat and increased skin temperature led to more mosquito bites, however and exact correlation has yet to been discovered.</h4>
+            </div>
+            <div class="agetext"></div>
+        </div>
+
+    </div>
+
 </div>
 

@@ -1,0 +1,280 @@
+﻿
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    main {
+        display: flex;
+        flex-flow: row-reverse nowrap;
+        justify-content:space-around;
+        align-content: space-between;
+        width: 100%;
+        height: 100vh;
+        padding: 90px 20px 20px 20px;
+        font-family: 'Montserrat' !important;
+    }
+
+    h1 {
+        font-weight: 700;
+    }
+
+    h2 {
+        font-size: 1em;
+        color: grey;
+    }
+
+    #sidebar {
+        display: flex;
+        justify-content:space-between;
+        flex-flow: column nowrap;
+        width: 20%;
+        min-width: 300px;
+        max-width: 500px;
+        background-color: white;
+        border-radius: 20px;
+        -webkit-box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.12); 
+        box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.12);
+    }
+
+    #sidebar>div {
+        display:flex;
+        flex-flow:column;
+        height: 50%;
+        width: 100%;
+        padding: 20px;
+    }
+
+    #mapContainer {
+        width: 80%;
+        min-width: 800px;
+        max-width: 1600px;
+        margin-left: 10px;
+        border-radius: 20px;
+    }
+
+    .progress.active .progress-bar {
+        -webkit-transition: none !important;
+        transition: none !important;
+    }
+    
+    #handle {
+        display: none;
+        width: 50px; 
+        border-radius: 5px; 
+        background-color: lightgrey; 
+        align-self: center; 
+        padding: 4px; 
+        margin: 20px;
+    }
+
+    #predictionsList::-webkit-scrollbar {
+        display: none;
+    }
+
+    #predictionsList li span {
+        float:right;
+        font-weight: 700;
+    }
+        
+    /*MOBILE*/
+    @@media screen and (max-width: 640px) {
+        html {
+            scroll-snap-type: y proximity;
+            scroll-snap-points-y: repeat(600px);
+        }
+
+        main {
+            padding: 0;
+            margin: 0;
+        }
+
+        #mapContainer {
+            scroll-snap-align: start;
+            width: 100%;
+            min-width: 0;
+            height: 80vh;
+            border-radius: 0;
+            margin: 0;
+            position: fixed;
+            top: 60px;
+        }
+
+        #sidebar {
+            scroll-snap-align: start;
+            position: relative;
+            width: 100%;
+            top: 85vh;
+            height: fit-content;
+        }
+
+        #handle {
+            display: block;
+        }
+    }
+</style>
+
+<section id="mapContainer">
+    <div class='tableauPlaceholder' id='viz1573650929378'>
+        <noscript>
+            <a href='#'>
+                <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;De&#47;DengueMap&#47;Sheet1&#47;1_rss.png' style='border: none;' />
+            </a>
+        </noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='path' value='views&#47;DengueMap&#47;Sheet1?:embed=y&amp;:display_count=y&amp;publish=yes' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;De&#47;DengueMap&#47;Sheet1&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='no' />
+            <param name='display_count' value='yes' />
+            <param name='filter' value='publish=yes' />
+        </object>
+    </div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1573650929378');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = '100%';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+</section>
+
+<section id="sidebar">
+    <span id="handle"></span>
+    <div>
+        <h1 style="margin-bottom: 10px">Predictions</h1>
+        <h2>Current Location</h2>
+        <center id="tempGetCurrentLocation" class="alert alert-info" style="border-radius: 10px; align-self:center; margin: 20px;">
+            <p style="width:90%; margin: 20px;">To view predictions for your area, please enable location services</p>
+            <button style="width:90%;" class="btn btn-light" type="button" onclick="getLocation()">
+                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                Get Location
+            </button>
+        </center>
+        <div id="getLocationSpinner" style="display: none;">
+            <div>
+                <center style="color:lightgrey;">Loading</center>
+            </div>
+        </div>
+        <div id="GetCurrentLocation" style="display:none; flex-flow: column;">
+            <div style="display: flex; flex-flow: row; padding: 10px; background-color: #f5f8fa; border-radius: 5px; width: auto;">
+                <div class="spinner-grow spinner-grow-sm text-info" aria-hidden="true"></div>
+                <h2 id="currentLocation" style="color: #2a81ba; margin: 0 5px;"></h2>
+            </div>
+            <br />
+            <div style="display: flex; align-content: end;">
+                <h3 id="probability" style="font-weight:700; font-size: 2.5em;"></h3>
+                <p style="color: grey; align-self: flex-end;" id="description"></p>
+            </div>
+            <div class="progress" style="height: 8px;">
+                <div class="progress-bar" style="width:0%"></div>
+            </div>
+            <br />
+            <a href="~/prevention" class="btn btn-outline-info">Prevention</a>
+        </div>
+
+    </div>
+
+    <!-------------------------------------------------->
+
+    <div>
+        <h2>All Locations</h2>
+        <ul class="list-group card" id="predictionsList" style="overflow-y: scroll; height: 100%; width: 100%; border-radius: 10px;">
+        </ul>
+    </div>
+
+</section>
+
+
+<script>
+    stationList = [['Upper Thomson', '1.3729658', '103.8285081'], ['Clementi', '1.3161811', '103.7649377'], ['Buangkok', '1.3800765', '103.8941158'], ['Sentosa Island', '1.2494041', '103.8303209'], ['Chai Chee', '1.3245243', '103.9230534'], ['Boon Lay (West)', '1.3142556', '103.7093099'], ['Bukit Panjang', '1.3774142', '103.7719498'], ['Kranji Reservoir', '1.4244898', '103.7390537'], ['Upper Peirce Reservoir', '1.3677898', '103.8027893'], ['Kent Ridge', '1.2933333', '103.7830556'], ['Queenstown', '1.2941664', '103.7861271'], ['Tanjong Katong', '1.3059671', '103.9049556'], ['Somerset (Road)', '1.3004662', '103.838385'], ['Punggol', '1.3984457', '103.9072046'], ['Tuas West', '1.3354876', '103.6352805'], ['Simei', '1.3399194', '103.949471'], ['Boon Lay (East)', '1.3142556', '103.7093099'], ['Toa Payoh', '1.3343035', '103.8563265'], ['Tuas', '1.2949472', '103.6304833'], ['Bukit Timah', '1.3294113', '103.8020777'], ['Yishun', '1.430368', '103.8353628'], ['Buona Vista', '1.3072964', '103.7901128'], ['Pasir Ris (Central)', '1.3721913', '103.9491595'], ['Jurong (North)', '1.3328572', '103.7435522'], ['Semakau Island', '1.2064868', '103.7709177'], ['Admiralty', '1.4406049', '103.800966'], ['Admiralty West', '1.4560244', '103.7986363'], ['Pulau Ubin', '1.4125659', '103.9577334'], ['East Coast Parkway', '1.304986', '103.922734'], ['Marina Barrage', '1.2805282', '103.8711747'], ['Ang Mo Kio', '1.3691149', '103.8454342'], ['Serangoon North', '1.3664661', '103.8731593'], ['Newton', '1.3075517', '103.8403765'], ['Lim Chu Kang', '1.4304941', '103.7173325'], ['Marine Parade', '1.3019687', '103.8970821'], ['Choa Chu Kang (Central)', '1.3810208', '103.7469358'], ['Tuas South', '1.3069656', '103.6261118'], ['Pasir Panjang', '1.2760684', '103.7919037'], ['Jurong Island', '1.2759631', '103.6767958'], ['Dhoby Ghaut', '1.2990936', '103.8457886'], ['Nicoll Highway', '1.3018444', '103.864928'], ['Botanic Garden', '1.3138397', '103.8159136'], ['Choa Chu Kang (South)', '1.3839803', '103.7469611'], ['Khatib', '1.4173483', '103.8329731']];
+    // Sort locations according to percentage
+    var sortedArray = []
+    for (i = 0; i < stationList.length; i++) {
+        prob = stationList[i][1].slice(-2);
+        sortedArray.push([stationList[i][0], prob]);
+    }
+    sortedArray.sort(function (a, b) {
+        return b[1] - a[1];
+    });
+
+    for (i = 0; i < sortedArray.length; i++) {
+        var li = document.createElement("li");
+        if (sortedArray[i][1] > 70) {
+            li.setAttribute("class","list-group-item list-group-flush list-group-item-danger");
+        }
+        else if (sortedArray[i][1] > 30) {
+            li.setAttribute("class","list-group-item list-group-item-warning");
+        }
+        else {
+            li.setAttribute("class","list-group-item list-group-item-success");
+        }
+        li.innerHTML = sortedArray[i][0] + "<span>" + sortedArray[i][1] + "%</span>";
+        document.querySelector("#predictionsList").appendChild(li);
+    }
+
+
+    // Current Location
+    function getLocation() {
+        document.getElementById("tempGetCurrentLocation").style.display = "none";
+        document.getElementById("getLocationSpinner").style.display = "block";
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      }
+      else {
+          alert("Geolocation is not supported by this browser");
+      }
+    }
+
+    function showPosition(position) {
+        closestLocation = findClosestLocation([position.coords.latitude, position.coords.longitude]);
+        document.getElementById("currentLocation").innerHTML = closestLocation;
+        document.getElementById("getLocationSpinner").style.display = "none";
+        document.getElementById("GetCurrentLocation").style.display = "flex";
+        for (i = 0; i < stationList.length; i++) {
+            if (stationList[i][0] == closestLocation) {
+                var probability = stationList[i][1].slice(-2);
+                break;
+            }
+        }
+        document.getElementById("probability").innerHTML = probability + "%";
+        if (probability < 33) {
+            $("#probability").css("color", "#00cc44")
+            $("#description").html(" &nbsp Low Risk")
+            $(".progress-bar").addClass("bg-success");
+        }
+        else if (probability < 66) {
+            $("#probability").css("color", "#ff9933")
+            $("#description").html(" &nbsp Moderate Risk")
+            $(".progress-bar").addClass("bg-warning");
+        }   
+        else {
+            $("#probability").css("color", "#cc0000")
+            $("#description").html(" &nbsp High Risk")
+            $(".progress-bar").addClass("bg-danger");
+        }
+        $(".progress-bar").animate({
+            width: probability + "%"
+        }, 500);
+    }
+
+    function findClosestLocation(coords){
+        lowDisplacement = 999;
+        station = "";
+        for (i = 0; i < stationList.length; i++) {
+            displacement = ((coords[0] - stationList[i][1]) ** 2 + (coords[1] - stationList[i][2]) ** 2) ** 0.5;
+            if (lowDisplacement > displacement) {
+                lowDisplacement = displacement;
+                station = stationList[i][0];
+            }
+        }
+        return (station);
+    }
+</script>

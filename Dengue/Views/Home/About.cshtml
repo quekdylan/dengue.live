@@ -5,18 +5,75 @@
 }
 
 <style>
-    #header-img{
+    #header-img {
         display: flex;
         align-items: center;
         height: 500px;
         background-color: #85CEBB;
     }
+
     #header-img h1 {
         text-align: left;
         margin-left: 80px;
         color: white;
-        font-family: 'Segoe UI';
+        font-family: 'Montserrat';
         font-weight: 700;
+    }
+
+    #main {
+        margin: 50px 10%;
+    }   
+
+    .content {
+        margin-bottom: 80px;
+        padding: 10px;
+    }
+
+    .content p {
+        width: 50%;
+    }
+
+    h1 {
+        font-family: 'Montserrat';
+        font-weight: 700;
+        font-size: 3em;
+        color: #093a3d;
+    }
+
+    p {
+        width: 50%;
+        color: #555;
+        font-family: sans-serif;
+        font-size: 1.2em;
+    }
+
+    h3 {
+        font-family: sans-serif;
+        font-weight: 500;
+        font-size: 1.8em;
+        text-align:center;
+    }
+
+    .team {
+        display: flex;
+        flex-flow: column wrap;
+        align-content: center;
+        width: 20%;
+    }
+
+    .team p {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .team img {
+        align-self: center;
+        width:45%;
+        border-radius: 50%;
+    }
+
+    .row {
+        margin: 40px auto;
     }
 
     /*MOBILE*/
@@ -24,14 +81,105 @@
         #header-img {
             justify-content: center;
         }
+
         #header-img h1 {
             margin-left: 0;
             text-align: center;
             font-size: 2em;
         }
+
+        #main {
+            margin: 50px 5%;
+        }
+
+        .content p {
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2em;
+        }
+
+        p {
+            font-size: 1em;
+        }
+
+        .row {
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .team {
+            margin-top: 20px;
+            width: 100%;
+        }
+
     }
 </style>
 
 <div id="header-img">
     <h1>About Us</h1>    
+</div>
+
+<div id="main">
+    <div class="alert alert-warning" role="alert">
+        Website is still incomplete. Some functions may not work as intended.
+    </div>
+    <div class="content">
+        <br />
+        <h1>What is dengue.live?</h1>
+        <p>
+            dengue.live is a website which predicts future hotspots to help reduce the spread of dengue virus in Singapore.
+        </p>
+    </div>
+
+    <div class="content">
+        <h1>About Us</h1>
+        <p>
+            We are a bunch of students from Ngee Ann Polytechnic, located in Singapore. What we have done in the project is
+            based off the skills we picked during our study. We have used the following tools to help with our project; Python
+            for machine learning, Tableau and Tabula for data visualisation and HTML, CSS, and Javascript for website.
+        </p>
+    </div>
+
+    <div class="content">
+        <h1>How it Works</h1>
+        <p></p>
+    </div>
+
+    <div>
+        <h1 style="text-align:center;">About the Team</h1>
+        <div class="row">
+            <br>
+            <div class="team">
+                <img src="~/images/dylan.jpg" alt="1">
+                <h3>Dylan</h3>
+                <p>Website Designer</p>
+            </div>
+
+            <div class="team">
+                <img src="~/images/tom.jpg" alt="2">
+                <h3>Tom</h3>
+                <p>Machine Learning</p>
+            </div>
+
+            <div class="team">
+                <img src="~/images/jun.jpg" alt="3">
+                <h3>Jun Min</h3>
+                <p>Website Content</p>
+            </div>
+
+            <div class="team">
+                <img src="~/images/dong.jpg" alt="4">
+                <h3>Dong Han</h3>
+                <p>Website Content</p>
+            </div>
+
+            <div class="team">
+                <img src="~/images/ricardo.jpg" alt="5">
+                <h3>William</h3>
+                <p>Mapping of hotspots</p>
+            </div>
+        </div>
+    </div>
 </div>

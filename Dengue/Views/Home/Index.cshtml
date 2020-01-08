@@ -6,101 +6,73 @@
 
 <style>
     body {
-        font-family: sans-serif;
+        font-family: 'Montserrat';
     }
 
     canvas {
         background-color: #85CEBB;
     }
 
-    #header-img {
-        position: relative;
-        text-align: center;
+    #title {
+        position: absolute;
+        bottom: 450px;
+        left: 10%;
+        width: 900px;
+        text-align: left;
+        font-size: 4em;
+        font-weight: 700;
         color: white;
     }
 
-    #title {
-        position: absolute;
-        bottom: 300px;
-        left: 80px;
-        width: 900px;
-        text-align: left;
-        font-family: 'Montserrat';
-        font-size: 4em;
-        font-weight: 700;
-    }
-
-    #map {
-        width: 100%;
-        height: 600px;
-        margin-bottom: 100px;
-        border-radius: 20px;
-        background-color: #eeeeee;
-    }
-
     h1 {
-        font-family: 'Montserrat';
         font-weight: 700;
-        font-size: 3em;
-        color: #666666;
-        margin-left: -10px;
-    }
-
-    #main {
-        margin: 50px 10%;
-    }
-
-    a {
-    color: grey;
-    text-decoration: none;
-}
-
-    a:hover {
-    color: #222;
-    text-decoration: none;
+        font-size: 2.5em;
     }
 
     p {
+        color: #666;
+        font-size: 1.2em;
+    }
+
+    #main {
+        margin: 100px 10%;
+    }
+
+    #whatis {
+        margin: 0 auto 200px auto;
         width: 50%;
     }
 
-    .card {
-        border-radius: 10px;
-    }
-
-    #predictionContainer{
+    section {
         display: flex;
-        flex-flow: row wrap;
-        margin-bottom: 100px;
+        flex-flow: row-reverse;
+        justify-content: space-between;
+        margin-bottom: 300px;
+        align-items: center;
     }
 
-    #currentLocationCard{
-        width: 400px;
-        padding: 50px;
-        height: 500px;
-        margin-right: 20px;
+    section>div {
+        width: 45%
     }
 
-    #predictionsList {
-        width: 60%;
-    }
-
-    #predictionsList div {
-        width: 100%;
-        height: 100px;
-    }
-
-    #preventionCard{
+    .card1{
         height: 350px;
         width: 100%;
-        padding: 80px;
+        padding: 60px;
         border-radius: 20px;
-        background-color: darkslategrey;
     }
 
-    .list-group li {
-        font-size: 2em;
+    #predictionsBtn {
+        border-radius: 99px; 
+        color: white; 
+        background-color: dodgerblue; 
+        padding: 15px 25px;
+        text-decoration: none;
+        font-size: 1.2em;
+        font-weight: bold;
     }
+
+
     /*MOBILE*/
     @@media screen and (max-width: 640px) {
 
@@ -109,102 +81,77 @@
         }
 
         #title {
-        position: absolute;
-        bottom: 200px;
-        left: 5%;
-        width: 90%;
-        text-align: center;
-        font-size: 2.5em;
+            top: 150px;
+            left: 5%;
+            width: 90%;
+            text-align: center;
+            font-size: 2.2em;
+        }
+
+        #main>* {
+            width: 100%;
+        }
+
+        section {
+            flex-flow: column;
+        }
+        
+        section>div {
+            width: 100%
+        }
+
+        #predictionsBtn {
+            font-size: 1em;
+            padding: 10px 20px;
         }
 
         h1 {
-            width: 100%;
-            font-size: 2.5em;
-        }
-
-        h4 {
-            font-size: 1em;
+            font-size: 2em;
         }
 
         p {
-            width: 100%;
+            font-size: 1em;
         }
 
-        #currentLocationCard {
-            width:100%;
-            margin: 0 0 50px 0;
-        }
-
-        #predictionsList {
-            width: 100%;
-        }
-
-        #preventionCard {
+        .card1 {
             padding: 50px;
         }
     }
 </style>
 
-<div id="header-img">
+<div>
     <canvas id="canvas"></canvas>
-    <div id="title">Under Construction</div>
+    <div id="title">Fighting dengue using machine learning</div>
 </div>
 
 <div id="main">
-    <div id="whatIsContainer" style="margin-bottom: 100px;">
+
+    <center id="whatis">
         <h1>What is dengue.live?</h1>
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco
-            laboris nisi ut aliquip ex ea commodo consequat.
+            Dengue.live provides predictions of future dengue hotspots using machine learning.
+            Our goal is to increase awareness and help reduce the spread of Dengue in Singapore.
         </p>
-        <a href="@Url.Action("About", "Home")">Learn more</a>
-    </div>
+        <a style="color: Highlight; text-decoration: none; font-size: 1.2em;" href="@Url.Action("About", "Home")">Learn more</a>
+    </center>
 
-    <div id="mapContainer">
-        <h1>Predictions</h1>
-        <div id="map">
-            <div class='tableauPlaceholder' id='viz1573621920585' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;De&#47;DengueMap&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='views&#47;DengueMap&#47;Sheet1?:embed=y&amp;:display_count=y&amp;publish=yes' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;De&#47;DengueMap&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>
-            <script type='text/javascript'>var divElement = document.getElementById('viz1573621920585'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
+    <section>
+        <div style="height: 500px; border: 1px black solid;">
+            img
         </div>
-    </div>
-
-    <div id="predictionContainer">
-        <div id="currentLocationCard" class="card">
-            <h1>Current Location</h1>
-            <div id="tempGetCurrentLocation">
-                <center>
-                    <br />
-                    <p>To view predictions for your area, please enable location services</p>
-                    <button class="btn btn-info" type="button" onclick="getLocation()">
-                        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-                        Get Location
-                    </button>
-                </center>
-            </div>
-
-            <div>
-                <p id="currentLocation"></p>
-            </div>
+        <div>
+            <h1 style="margin-bottom: 20px;">Predictions</h1>
+            <p>View results from our machine learning model and check if your area is at risk</p>
+            <br />
+            <a href="@Url.Action("Dashboard", "Home")" id="predictionsBtn">View Predictions &#8594</a>
         </div>
-        
-        <div id="predictionsList">
-            <ul class="list-group">
-                <li class="list-group-item">A simple list group item</li>
-                <li class="list-group-item">A simple list group item</li>
-                <li class="list-group-item">A simple list group item</li>
-                <li class="list-group-item">A simple list group item</li>
-                <li class="list-group-item">A simple list group item</li>
-            </ul>
-        </div>
-    </div>
+    </section>
 
-    <div id="preventionCard">
-        <h1 style="color: #85CEBB; margin:0;">Play your part</h1>
-        <h4 style="color:lightgrey; max-width: 600px">Take preventive measures to protect yourself and others from dengue</h4>
+    <div class="card1" style="background-color: darkslategrey;">
+        <h1 style="color: #85CEBB; margin:0;">Stay vigilant</h1>
+        <p style="color: #EEE; max-width: 600px; margin-top: 10px;">Receive alerts when your location is at risk by signing up for our early warning system.</p>
         <br />
-        <a href="@Url.Action("Prevention", "Home")" style="font-weight:600;" class="btn btn-outline-info">Learn More</a>
+        <a href="#" style="font-weight:600;" data-toggle="modal" data-target="#ewsModal" class="btn btn-outline-info">Learn more</a>
     </div>
 
 </div>
@@ -213,66 +160,28 @@
 
 
 <script>
-    // SCROLLREVEAL ///////////////////////////////////////
-    ScrollReveal().reveal('#title', { distance: '20px', origin: 'top', delay: 200, duration: 1500 });
-    ScrollReveal().reveal('#whatIsContainer', { distance: '20px', origin: 'top', delay: 400, duration: 1500 });
-    ScrollReveal().reveal('#mapContainer', { distance: '20px', origin: 'top', delay: 200, duration: 1500 });
-    ScrollReveal().reveal('#currentLocationCard', { distance: '20px', origin: 'top', delay: 200, duration: 1500 });
-    ScrollReveal().reveal('#predictionsList', { distance: '20px', origin: 'top', delay: 400, duration: 1500 });
-    ScrollReveal().reveal('#preventionCard h1', { distance: '20px', origin: 'top', delay: 200, duration: 1500 });
-    ScrollReveal().reveal('#preventionCard h4', { distance: '20px', origin: 'top', delay: 400, duration: 1500 });
-    ScrollReveal().reveal('#preventionCard a', { distance: '20px', origin: 'top', delay: 1000, duration: 1500 });
-
-
-    // GEOLOCATION ////////////////////////////////////////
-    function getLocation() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-      } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
-      }
-    }
-
-    function showPosition(position) {
-        /*
-        lowDisplacement = -1
-        for station in stationList[1:]:
-
-        #Find displacement to determine closest location
-        displacement = math.sqrt(math.hypot(float(row[-2]) - float(station[1]), float(row[-1]) - float(station[2])))
-        if lowDisplacement > displacement or lowDisplacement == -1:
-            lowDisplacement = displacement
-            stationName = station[0]*/
-
-        document.getElementById("currentLocation").innerHTML = "Your location" + position.coords.latitude + 
-            ", " + position.coords.longitude;
-        document.getElementById("tempGetCurrentLocation").style.display = "none";
-    }
-
-
-    // BACKGROUND ANIMATION ///////////////////////////////
     var canvas = document.getElementById("canvas"),
         ctx = canvas.getContext('2d');
-
     var stars = [], // Array that contains the stars
         FPS = 60, // Frames per second
-        x = 100, // Number of stars
+        x = 80, // Number of stars
         mouse = {
             x: 0,
             y: 0
-        };  // mouse location
-
-    canvas.width = $("body").prop("clientWidth");
-    canvas.height = 800;
-
-    // Mobile view
-    if (canvas.width < 640) {
-        canvas.height = 500;
-        x = 20;
+        };
+    function resize() {
+        canvas.width = $("body").prop("clientWidth");
+        canvas.height = 800;
+        // Mobile view
+        if (canvas.width < 640) {
+            canvas.height = 500;
+            x = 20;
+        }
     }
-
-    // Push stars to array
-
+    resize();
+    document.querySelector("body").onresize = function () {
+        resize();
+    }
     for (var i = 0; i < x; i++) {
         stars.push({
             x: Math.random() * canvas.width,
@@ -282,9 +191,6 @@
             vy: Math.floor(Math.random() * 50) - 25
         });
     }
-
-    // Draw the scene
-
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -309,7 +215,6 @@
             for (var j = 0, x = stars.length; j < x; j++) {
                 var starII = stars[j];
                 if (distance(starI, starII) < 175) {
-                    //ctx.globalAlpha = (1 / 150 * distance(starI, starII).toFixed(1));
                     ctx.lineTo(starII.x, starII.y);
                 }
             }
@@ -332,8 +237,6 @@
         return Math.sqrt(xs + ys);
     }
 
-    // Update star locations
-
     function update() {
         for (var i = 0, x = stars.length; i < x; i++) {
             var s = stars[i];
@@ -350,8 +253,6 @@
         mouse.x = e.clientX;
         mouse.y = e.clientY;
     });
-
-    // Update and draw
 
     function tick() {
         draw();

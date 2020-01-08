@@ -8,47 +8,106 @@
     #header-img {
         display: flex;
         align-items: center;
-        height: 500px;
-        background-color: #85CEBB;
+        height: 600px;
+        background: #85CEBB;
     }
 
     #header-img h1 {
         text-align: left;
-        margin-left: 80px;
+        margin-left: 10%;
         color: white;
         font-family: 'Montserrat';
         font-weight: 700;
     }
 
-    p {
-            font-size: 1.5em;
-            font-family: 'Montserrat';
-        }
-
-    #main{
-        margin:50px 10%;
+    #main {
+         margin: 50px 15%;
+         height:100%;
          display: flex;
-         flex-flow: column wrap;
+         flex-flow: column;
     }
 
     h1 {
-            font-family: 'Montserrat';
-            font-weight: 700;
-            font-size: 3em;
-            color: #666666;
-            margin-left: -10px;
-            width: 100%;
-        }
-    h2 {
-            font-family: 'Montserrat';
-            font-weight: 200;
-            font-size: 1.7em;
-            color: #666666;
-            width: 100%;
+        font-weight: 700;
+        font-size: 3em;
+        color: #062e33;
+        margin-bottom: 100px;
+    }
 
-        }   
+    h2 {
+        font-weight: 700;
+        font-size: 2em;
+        color: #062e33;
+    }
+
+    p {
+        font-size: 1em;
+        color: #555;
+        font-weight: bold;
+        line-height: 1.5em;
+    }
+
+    #stats {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+    }
+
+    #stats>div {
+        min-width: 100px;
+        max-width: 200px;
+        margin: 20px;
+    }
+
+    #stats h3 {
+        background-color: #dbf0f1;
+        font-weight: bold;
+        color: #0d4e56;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .container {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        text-align: right;
+        align-items: center;
+        margin-bottom: 100px;
+    }
+
+    .container>div {
+        width: 40%;
+    }
+
+    .image {
+        width: 40%;
+        border-radius: 20px;
+    }
+
+    .reverse {
+        text-align: left;
+    }
+
+    section {
+        background-color: white;
+        border-radius: 20px;
+        padding: 80px 50px;
+        margin-bottom: 100px;
+        min-width: 600px;
+        -webkit-box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.1); 
+        box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.1);
+    }
+
+    #top {
+        margin-top: -200px;
+    }
     /*MOBILE*/
     @@media screen and (max-width: 640px) {
+        #main {
+            margin: 50px 5%;
+        }
+
         #header-img {
             justify-content: center;
         }
@@ -58,6 +117,40 @@
             text-align: center;
             font-size: 1.9em;
         }
+
+        h1 {
+            font-size: 2em;
+        }
+
+        #stats {
+            flex-flow: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .container{
+            flex-flow: column;
+            justify-content: center;
+            text-align: left;
+        }
+
+        .container img {
+            width: 100%;
+        }
+
+        .container>div {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .reverse {
+            flex-flow: column-reverse;
+        }
+
+        section {
+            padding: 40px 25px;
+            min-width: unset; 
+        }
     }
 </style>
 
@@ -66,106 +159,115 @@
 </div>
 
 <div id="main">
-    <div style="display: flex; flex-flow: row;">
-        <div>
-            <h1>How do we prevent the dangerous Dengue disease from spreading?</h1>
-            <p>
-                The dengue virus is transmitted by the bite of the Aedes mosquito. Therefore in order to prevent dengue cases you must prevent the spread of Aedes mosquitoes.
-            </p>
-        </div>
-        <div class="imageright">
-            <img src="~/images/aedesmosquito.jpg" alt="Aedes Mosquito">
-        </div>
-    </div>
 
-    <div style="margin-top: 5%; display:flex;">
-        <div class="imageleft">
-            <img src="~/images/lifecycle.png" alt="Lifecycle of Aedes Mosquitoes" />
-        </div>
-        <div style="margin-left: 5%">
-            <p>
-                According to NEA, under optimal conditions, the egg of an Aedes mosquito can hatch into a larva in less
-                than a day. The larva will then take about 4-5 days to develop into a pupa.
-                The pupa will then develop into an adult mosquito in 2-3 days.
-                You are able to prevent Aedes mosquito from successfully breeding by frequently checking and
-                removing stagnant water in your home.
-            </p>
-        </div>
-    </div>
+    <section id="top">
+        <h1>In 2019 alone...</h1>
 
-    <div style="margin-top: 5%; display:flex;">
-        <div>
-            <p>
-                A good way to get rid of stagnant water in your home is to follow the 5-step mozzie wipeout by NEA every alternate day,
-                this way Aedes mosquito breeding can be prevented.
-            </p>
+        <div id="stats">
+            <div>
+                <h3>0.25%</h3>
+                <p>of the population had contracted dengue.</p>
+            </div>
+            <div>
+                <h3>>15000</h3>
+                <p>Reported cases of dengue</p>
+            </div>
+            <div>
+                <h3>20</h3>
+                <p>Reported deaths caused by dengue</p>
+            </div>
         </div>
-        <div style="margin-left: 5%">
-            <img src="~/images/5steps.jpg" alt="5 Steps Mozzie Wipeout" />
-        </div>
-    </div>
+    </section>
 
-    <h1 style="margin-top: 5%">For Home Use:</h1>
-    <h2 style="text-decoration: underline;">Electronic Pest Repellent</h2>
+    <section>
+        <h1>Background</h1>
 
-    <div style="display:flex;">
-        <div>
-            <img src="~/images/electronicPest.jpg" alt="Electronic pest repellent" />
-        </div>
-        <div style="margin-left: 5%">
-            <p>
-                But what if the mosquito did not breed from your home and instead came from outside?
-                There are Electronic Pest Repellent that is made for this reason.
-                It uses UV tube to attract mosquitoes and then kills them, leaving your house mosquito free.
-            </p>
-
-        </div>
-    </div>
-
-    <h2 style="text-decoration: underline; margin-top: 2%;">Fly screen</h2>
-    <div style="display:flex;">
-        <div>
-            <p>
-                A fly screen is designed to cover the opening of a window.
-                It prevents insects like mosquitoes from entering, while at the same time letting light and air through.
-            </p>
-        </div>
-        <div style="margin-left: 5%">
-            <img src="~/images/flyscreen.jpg" alt="Flyscreen" />
-        </div>
-    </div>
-
-    <h2 style="text-decoration: underline; margin-top: 2%;">Mosquito net</h2>
-    <div style="display:flex;">
-        <div>
-            <img src="~/images/mosquitonet.jpg" alt="mosquito net" />
+        <div class="container">
+            <img class="image" src="~/images/lifecycle.png" alt="Lifecycle of Aedes Mosquitoes" />
+            <div>
+                <h2>The Aedes Mosquito</h2>
+                <p>
+                    The dengue virus is transmitted by the Aedes mosquito.
+                    Under optimal conditions, the egg of an Aedes mosquito can develop
+                    into an adult in just 6-8 days, meaning they can breed very rapidly.
+                </p>
+            </div>
         </div>
 
-        <div style="margin-left: 5%">
-            <p>
-                A mosquito net is a type of meshed curtain that is draped over a bed to provide the sleeper a physical barrier to protect
-                against mosquitoes.
-            </p>
+        <div class="container reverse">
+            <div>
+                <p>
+                    Therefore, the key to prevent dengue cases is to prevent the
+                    breeding of the Aedes mosquitoes and to prevent yourself from getting bitten.
+                </p>
+            </div>
+            <img class="image" src="~/images/aedesmosquito.jpg" alt="Aedes Mosquito">
         </div>
-    </div>
+    </section>
+    
 
-    <h1 style="margin-top: 5%">For Outside Use:</h1>
-    <h2 style="text-decoration: underline;">Insect repellent</h2>
+    <section>
+        <h1>Prevention of breeding</h1>
 
-    <div style="display:flex;">
-        <div>
-            <p>
-                Mosquito rely mainly on their sense of smell to find their target.
-                By spraying a little mosquito repellent on your clothes it works by blocking a mosquito sense of smell,
-                preventing it from finding its target.
-            </p>
+        <div class="container reverse">
+            <div>
+                <h2>5-Step Mozzie Wipeout</h2>
+                <p>
+                    A good way to get rid of stagnant water in your home is to follow the 5-step mozzie wipeout by NEA every alternate day,
+                    this way Aedes mosquito breeding can be prevented.
+                </p>
+            </div>
+            <img class="image" src="~/images/5steps.jpg" alt="5 Steps Mozzie Wipeout" />
+        </div>
+    </section>
+
+    <section>
+        <h1>Prevention of mosquito bites</h1>
+
+        <div class="container">
+            <img class="image" src="~/images/electronicPest.jpg" alt="Electronic pest repellent" />
+            <div>
+                <h2>Electronic Pest Repellent</h2>
+                <p>
+                    But what if the mosquito did not breed from your home and instead came from outside?
+                    There are Electronic Pest Repellent that is made for this reason.
+                    It uses UV tube to attract mosquitoes and then kills them, leaving your house mosquito free.
+                </p>
+            </div>
         </div>
 
-        <div style="margin-left: 5%">
-            <img src="~/images/mosquitorepellent.jpg" alt="Insect Repellent" />
+        <div class="container reverse">
+            <div>
+                <h2>Fly screen</h2>
+                <p>
+                    A fly screen is designed to cover the opening of a window.
+                    It prevents insects like mosquitoes from entering, while at the same time letting light and air through.
+                </p>
+            </div>
+            <img class="image" src="~/images/flyscreen.jpg" alt="Flyscreen" />
         </div>
-    </div>
 
+        <div class="container">
+            <img class="image" src="~/images/mosquitonet.jpg" alt="mosquito net" />
+            <div>
+                <h2>Mosquito net</h2>
+                <p>
+                    A mosquito net is a type of meshed curtain that is draped over a bed to provide the sleeper a physical barrier to protect
+                    against mosquitoes.
+                </p>
+            </div>
+        </div>
 
-
+        <div class="container reverse">
+            <div>
+                <h2>Insect repellent</h2>
+                <p>
+                    Mosquito rely mainly on their sense of smell to find their target.
+                    By spraying a little mosquito repellent on your clothes it works by blocking a mosquito sense of smell,
+                    preventing it from finding its target.
+                </p>
+            </div>
+            <img class="image" src="~/images/mosquitorepellent.jpg" alt="Insect Repellent" />
+        </div>
+    </section>
 </div>

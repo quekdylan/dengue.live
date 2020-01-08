@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html style="height: 100%;">
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewData["Title"] | dengue.live</title>
@@ -8,10 +8,8 @@
     <script src="~/js/jquery-3.3.1.min.js"></script>
     <script src="~/js/popper.min.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
     <!--Custom styles-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
-    <link href="~/css/styles.css" rel="stylesheet" />
 </head>
 <body>
     <!--navbar-->
@@ -19,7 +17,94 @@
     <main>
         @RenderBody()
     </main>
-    <footer>
-    </footer>
+    @if (ViewData["Title"] != "Dashboard")
+    {
+        <style>
+            @@media screen and (max-width: 640px) {
+                footer h5 {
+                    font-size: 1em;
+                }
+
+                footer a {
+                    padding: 5px !important;
+                }
+
+                .footerSection {
+                    padding: 20px;
+                }
+
+                footer center {
+                    font-size: 0.8em;
+                }
+            }
+        </style>
+        @model Dengue.Models.EmailRecord
+        <footer style="height: auto; background-color: #eee; font-size: 1em;">
+            <div style="display: flex; justify-content:center; margin: 20px auto; padding: 40px 0;">
+                <div class="footerSection" style="display: flex; flex-flow: column; padding: 20px 50px 20px 20px; width: 300px; text-align: right; border-right: 1px lightgrey solid;">
+                    <h5 style="font-family: 'Montserrat'; font-weight: 700;">Navigation</h5>
+                    <a class="text-decoration-none text-secondary" href="../">Home</a>
+                    <a class="text-decoration-none text-secondary" href="~/about">About</a>
+                    <a class="text-decoration-none text-secondary" href="~/prevention">Prevention</a>
+                    <a class="text-decoration-none text-secondary" href="~/risk">Risk Factors</a>
+                    <a class="text-decoration-none text-secondary" href="~/dashboard">Predictions</a>
+                </div>
+                <div class="footerSection" style="padding: 20px 20px 20px 50px; width: 300px;">
+                    <h5 style="font-weight: 700;">Sign up for our Early Warning System</h5>
+                    <a href="#" style="font-weight:600;" data-toggle="modal" data-target="#ewsModal" class="btn btn-outline-info">Sign Up</a>
+                </div>
+            </div>
+            <center style="color: grey; vertical-align: bottom;">dengue.live 2019 &nbsp&nbsp Email: <a href="mailto:contact@dengue.live" class="text-decoration-none text-secondary">contact@dengue.live</a></center>
+        </footer>
+    }
+    <div class="modal fade" id="ewsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" style="color: grey; font-size: 1em;"><span style="color:#85CEBB; font-family: 'Montserrat', sans-serif;">dengue.live</span> | EARLY WARNING SYSTEM</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Receive an email notification when your area is at risk.
+                    </p>
+
+                    <form asp-action="SignUp" method="post">
+                        <div class="form-group">
+                            <label for="selectLocation" class="col-form-label">Location:</label>
+                            <input asp-for="Location" list="locations" id="selectLocation" class="form-control" autocomplete="on"/>
+                            <span asp-validation-for="Location" class="text-danger"></span>
+                            <datalist id="locations">
+                                @{
+                                    string[] stationList = { "Upper Thomson", "Clementi", "Buangkok", "Sentosa Island", "Chai Chee", "Boon Lay (West)", "Bukit Panjang", "Kranji Reservoir", "Upper Peirce Reservoir", "Kent Ridge", "Queenstown", "Tanjong Katong", "Somerset (Road)", "Punggol", "Tuas West", "Simei", "Boon Lay (East)", "Toa Payoh", "Tuas", "Bukit Timah", "Yishun", "Buona Vista", "Pasir Ris (Central)", "Jurong (North)", "Semakau Island", "Admiralty", "Admiralty West", "Pulau Ubin", "East Coast Parkway", "Marina Barrage", "Ang Mo Kio", "Serangoon North", "Newton", "Lim Chu Kang", "Marine Parade", "Choa Chu Kang (Central)", "Tuas South", "Pasir Panjang", "Jurong Island", "Dhoby Ghaut", "Nicoll Highway", "Botanic Garden", "Choa Chu Kang (South)", "Khatib" };
+                                    foreach (String location in stationList)
+                                    {
+                                        <option value="@location">@location</option>
+                                    }
+                                }
+                            </datalist>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-form-label">Name:</label>
+                            <input asp-for="Name" type="text" class="form-control" id="name">
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-form-label">Email:</label>
+                            <input asp-for="Email" type="email" class="form-control" id="email">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" style="color:white;">Close</button>
+                            <button type="submit" class="btn btn-primary" style="color:white;">Confirm</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Raw(TempData["msg"])
 </body>
 </html>
