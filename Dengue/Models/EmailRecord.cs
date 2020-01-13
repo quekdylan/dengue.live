@@ -8,14 +8,10 @@ namespace Dengue.Models
 {
     public class EmailRecord
     {
-        [Required]
         public string Location { get; set; }
 
-        [Required]
         public string Name { get; set; }
 
-        [Required]
-        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
     }
 }
