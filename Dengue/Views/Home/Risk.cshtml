@@ -14,14 +14,15 @@
 
     #header-img h1 {
         text-align: left;
-        margin-left: 80px;
+        margin-left: 15%;
+        font-size: 3em;
         color: white;
         font-family: 'Segoe UI';
         font-weight: 700;
     }
 
     #main {
-         margin: 50px 10%;
+         margin: 50px 15%;
          display: flex;
          flex-flow: column wrap;
     }
@@ -29,14 +30,29 @@
     #main h1{
         font-family: 'Montserrat';
         font-weight: 700;
-        font-size: 3em;
-        color: #666666;
+        font-size: 2em;
+        color: black;
     }
 
-    .upper, .lower {
+    h4 {
+        color: grey;
+        font-size: 1.2em;
+        font-weight: 400;
+        line-height: 1.8em;
+    }
+    
+    p {
+        font-size: 0.6em; 
+        margin: 0;
+        color: grey;
+    }
+
+    section {
         width: 100%;
+        min-width: 700px;
         float:left;
         text-align:center;
+        margin-bottom: 200px;
     }
 
     .uppersec {
@@ -49,11 +65,9 @@
 
     .agetext {
         margin: 50px 0;
-        padding: 40px;
-        width: 40%;
+        width: 400px;
         height: 300px;
-        border: 1px solid #000;
-        border-radius: 20px;
+        border-radius: 10px;
         float: right;
         display: block;
         color: rgba(128, 128, 128, 1);
@@ -69,17 +83,19 @@
 
     .bloodtext {
         margin: 50px 0;
-        padding: 40px;
-        width: 40%;
+        width: 400px;
         height: 300px;
-        border: 1px solid #000;
-        border-radius: 20px;
+        border-radius: 10px;
         float: left;
         display: block;
     }
 
     /*MOBILE*/
     @@media screen and (max-width: 640px) {
+        #main {
+            margin: 50px 5%;
+        }
+
         #header-img {
             justify-content: center;
         }
@@ -87,45 +103,49 @@
         #header-img h1 {
             margin-left: 0;
             text-align: center;
-            font-size: 2em;
+            font-size: 2.5em;
         }
 
-        
-        #all {
-            width: 100%;
+        h4 {
+            font-size: 1em;
         }
-        
-        .upper, .lower {
+
+        section {
             display:inline-grid;
+            min-width: unset;
             justify-content: center;
             width: 100%;
+            margin-bottom: 50px;
         }
 
         .uppersec {
+           padding: 0;
+           margin-top: 0px;
            width: 100%;
            flex-flow: wrap;
-           float:left;
-        }
-
-        .agetext {
-            width: 100%;
-            text-align: center;
         }
 
         .lowersec {
+            padding: 0;
+            margin-top: 0px;
             display:flex;
-            text-align: center;
             width: 100%;
             flex-flow:wrap;
-            float: left;
+            text-align: left
+        }
+
+        .agetext {
+            margin: 100px 0 20px 0;
+            width: 100%;
+            height: 250px;
+            order: -1;
         }
 
         .bloodtext {
+            margin: 100px 0 20px 0;
             width: 100%;
-            justify-content: center;
-            float: right;
-            flex-wrap:wrap-reverse;
-            order: 2;
+            height: 250px;
+            order: 0;
         }
     }
 </style>
@@ -134,91 +154,94 @@
     <h1>Risk Factors</h1>
 </div>
 <div id="main">
-    <div class="alert alert-warning" role="alert">
-        Website is still incomplete. Some functions may not work as intended.
+    <section>
+        <div class="uppersec">
+            <h1>Apparels</h1>
+            <h4>
+                Mosquitoes are attracted to darker colours (black/navy)
+                as they are much easier for them to see.
+            </h4>
+        </div>
+        <img src="~/images/apparel.jpg" alt="Black apparel" class="agetext">
+    </section>
+
+    <section>
+        <img src="~/images/blood.jpg" alt="Blood bag" class="bloodtext">
+        <div class="lowersec">
+            <h1>Blood Type</h1>
+            <h4>
+                Researchers have found that people with Type O blood are twice as attractive to mosquitoes than people with Type A.
+                In addition, based on other genes, 85% of people produce a secretion that signals their blood type, which draws mosquito regardless of blood type.
+            </h4>
+        </div>
+    </section>
+
+    <section>
+        <div class="uppersec">
+            <h1>Carbon Dioxide</h1>
+            <h4>
+                Mosquitoes can sense carbon dioxide up to 48 metres away,
+                so the more you exhale the more attractive you are to mosquitoes. Larger people generally produce more carbon dioxide.
+            </h4>
+        </div>
+        <img src="~/images/carbonDioxide.jpg" alt="Breath" class="agetext">
+    </section>
+
+    <section>
+        <img src="~/images/sweat.jpg" alt="Sweat" class="bloodtext">
+        <div class="lowersec">
+            <h1>Heat and Sweat</h1>
+            <h4>
+                Mosquitoes can sniff down victims through chemical compounds released in sweat,
+                strenuous exercises increase the build-up of such compounds, another factor includes genetics
+                making some people more prone to getting mosquito bites.
+            </h4>
+        </div>
+    </section>
+
+    <section>
+        <div class="uppersec">
+            <h1>Skin Bacteria</h1>
+            <h4>
+                Researchers have shown that the types of bacteria on one’s skin can increase the chances of
+                being bitten, which explains why some mosquitoes are drawn to ankles and feet.
+            </h4>
+        </div>
+        <img src="~/images/skinbacteria.jpg" alt="Running Man" class="agetext">
+    </section>
+
+    <section>
+        <img src="~/images/pregnancy.jpg" alt="Pregnant woman" class="bloodtext">
+        <div class="lowersec">
+            <h1>Pregnancy</h1>
+            <h4>
+                Mosquitoes are more likely to bite women in late pregnancy as they exhale 21% more
+                volume of breath. The abdomens of pregnant women are also warmer, attracting even more mosquitoes.
+            </h4>
+        </div>
+    </section>
+
+    <section>
+        <div class="uppersec">
+            <h1>Alcohol</h1>
+            <h4>
+                Researchers have found that mosquitoes are more attracted to participants who drank alcohol.
+                They figured that an increased ethanol content in sweat and increased skin temperature led to more mosquito bites,
+                however and exact correlation has yet to been discovered.
+            </h4>
+        </div>
+        <img src="~/images/beer.jpg" alt="Beer" class="agetext">
+    </section>
+    <div>
+        <h3 style="font-size: 1em; font-weight: bold;">References</h3>
+        <p>https://www.simplicol.de/en/simplicol-back-to-black-clothes-refresh.html</p>
+        <p>https://diamedicalusa.com/medical-equipment/simulated-iv-fluids-medications/iv-therapy/simulated-blood-bags-2/</p>
+        <p>https://upliftconnect.com/how-to-harness-power-of-breath/</p>
+        <p>https://www.medicalnewstoday.com/articles/319570.php</p>
+        <p>https://depositphotos.com/81193434/stock-photo-legs-and-feet-extreme-cross.html</p>
+        <p>https://www.olay.co.uk/en-gb/skin-care-tips-and-articles/lifestyle-and-skin/skincare-and-pregnancy</p>
+        <p>https://gothere.sg/blog/2018/02/28/best-beer-and-alcohol-deals-in-singapore/</p>
     </div>
-    <br />
-    <div id="all">
-        <div class="upper">
-            <div class="uppersec">
-                <h1>1. Apparels</h1>
-                <h4 style="font-size: 25px; margin:0; padding:0;">
-                    Mosquitoes are attracted to darker colours (black/navy)
-                    as they are much easier for them to see.
-                </h4>
-            </div>
-            <div class="agetext"></div>
-        </div>
-
-        <div class="lower">
-            <div class="bloodtext"></div>
-            <div class="lowersec">
-                <h1>2. Blood Type</h1>
-                <h4 style="font-size: 25px; margin:0; padding:0;">
-                    Researchers have found that people with Type O blood are twice as attractive to mosquitoes than people with Type A. 
-                    In addition, based on other genes, 85% of people produce a secretion that signals their blood type, which draws mosquito regardless of blood type.
-                </h4>
-            </div>
-        </div>
-
-        <div class="upper">
-            <div class="uppersec">
-                <h1>3. Carbon Dioxide</h1>
-                <h4 style="font-size: 25px; margin:0; padding:0;">
-                    Mosquitoes can sense carbon dioxide up to 48 metres away, 
-                    so the more you exhale the more attractive you are to mosquitoes. Larger people generally produce more carbon dioxide.
-                </h4>
-            </div>
-            <div class="agetext"></div>
-        </div>
-
-        <div class="lower">
-            <div class="bloodtext"></div>
-            <div class="lowersec">
-                <h1>4.Heat and Sweat</h1>
-                <h4 style="font-size: 25px; margin:0; padding:0;">
-                    Mosquitoes can sniff down victims through chemical compounds released in sweat, 
-                    strenuous exercises increase the build-up of such compounds, another factor includes genetics 
-                    making some people more prone to getting mosquito bites.
-                </h4>
-            </div>
-        </div>
-
-        <div class="upper">
-            <div class="uppersec">
-                <h1>5.Skin Bacteria</h1>
-                <h4 style="font-size: 25px; margin:0; padding:0;">
-                    Researchers have shown that the types of bacteria on one’s skin can increase the chances of 
-                    being bitten, which explains why some mosquitoes are drawn to ankles and feet.
-                </h4>
-            </div>
-            <div class="agetext"></div>
-        </div>
-
-        <div class="lower">
-            <div class="bloodtext"></div>
-            <div class="lowersec">
-                <h1>6.Pregnancy</h1>
-                <h4 style="font-size: 25px; margin:0; padding:0;">
-                    Mosquitoes are more likely to bite women in late pregnancy as they exhale 21% more
-                    volume of breath. The abdomens of pregnant women are also warmer, attracting even more mosquitoes.
-                </h4>
-            </div>
-        </div>
-
-        <div class="upper">
-            <div class="uppersec">
-                <h1>7.Beer</h1>
-                <h4 style="font-size: 25px; margin:0; padding:0;">
-                    Researchers have found that mosquitoes are more attracted to participants who drank alcohol. 
-                    They figured that an increased ethanol content in sweat and increased skin temperature led to more mosquito bites, 
-                    however and exact correlation has yet to been discovered.
-                </h4>
-            </div>
-            <div class="agetext"></div>
-        </div>
-
-    </div>
-
 </div>
+
 

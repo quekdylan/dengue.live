@@ -52,7 +52,15 @@
     }
 
     section>div {
-        width: 45%
+        width: 40%
+    }
+
+    #predictionsBanner {
+        width: 50%
+    }
+
+    #predictionsBanner img {
+        width: 100%;
     }
 
     .card1{
@@ -60,16 +68,6 @@
         width: 100%;
         padding: 60px;
         border-radius: 20px;
-    }
-
-    #predictionsBtn {
-        border-radius: 99px; 
-        color: white; 
-        background-color: dodgerblue; 
-        padding: 15px 25px;
-        text-decoration: none;
-        font-size: 1.2em;
-        font-weight: bold;
     }
 
 
@@ -100,6 +98,15 @@
             width: 100%
         }
 
+        #predictionsBanner {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        #predictionsBanner img {
+            width: 140%;
+        }
+
         #predictionsBtn {
             font-size: 1em;
             padding: 10px 20px;
@@ -114,7 +121,7 @@
         }
 
         .card1 {
-            padding: 50px;
+            padding: 30px;
         }
     }
 </style>
@@ -132,24 +139,25 @@
             Dengue.live provides predictions of future dengue hotspots using machine learning.
             Our goal is to increase awareness and help reduce the spread of Dengue in Singapore.
         </p>
-        <a style="color: Highlight; text-decoration: none; font-size: 1.2em;" href="@Url.Action("About", "Home")">Learn more</a>
+        <a class="btn btn-link btn-lg" href="@Url.Action("About", "Home")">Learn more</a>
     </center>
 
     <section>
-        <div style="height: 500px; border: 1px black solid;">
-            img
+        <div id="predictionsBanner">
+            <img src="~/images/predictionsBanner.png" alt="predictions"/>
         </div>
         <div>
             <h1 style="margin-bottom: 20px;">Predictions</h1>
             <p>View results from our machine learning model and check if your area is at risk</p>
             <br />
-            <a href="@Url.Action("Dashboard", "Home")" id="predictionsBtn">View Predictions &#8594</a>
+            <a href="@Url.Action("Dashboard", "Home")" class=" btn btn-info">View Predictions</a>
+            <a href="@Url.Action("About", "Home")" class="btn btn-outline-secondary">How it works</a>
         </div>
     </section>
 
     <div class="card1" style="background-color: darkslategrey;">
         <h1 style="color: #85CEBB; margin:0;">Early warning system</h1>
-        <p style="color: #EEE; max-width: 600px; margin-top: 10px;">Receive alerts when your location is at risk of becoming a dengue cluster. Play your part in preventing the spread of dengue.</p>
+        <p style="color: #EEE; max-width: 600px; margin-top: 10px;">Receive alerts when your location is at risk of becoming a dengue cluster.</p>
         <br />
         <a href="#" style="font-weight:600;" data-toggle="modal" data-target="#ewsModal" class="btn btn-outline-info">More info</a>
     </div>

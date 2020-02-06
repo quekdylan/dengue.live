@@ -39,7 +39,7 @@
                 <a class="nav-link" href="~/risk">Risk Factors</a>
             </li>
             <li class="nav-item ml-4">
-                <a class="btn btn-outline-light my-2 my-sm-0" href="~/dashboard">Predictions</a>
+                <a class="predictionsBtn btn btn-outline-light my-2 my-sm-0" href="~/dashboard">Predictions</a>
             </li>
         </ul>
     </div>
@@ -51,12 +51,12 @@
         if ($(this).scrollTop() < 400 && window.location.pathname != "/dashboard") {
             if ($('.navbar-toggler').attr('aria-expanded') == "false") {
                 $('.navbar').removeClass('navbar-dark bg-transparent').addClass('navbar-light bg-white');
-                $('.btn').removeClass('btn-outline-light').addClass('btn-outline-info');
+                $('.predictionsBtn').removeClass('btn-outline-light').addClass('btn-outline-info');
                 $('.navbar-brand').addClass('scrolled');
             }
             else {
                 $('.navbar').removeClass('navbar-light bg-white').addClass('navbar-dark bg-transparent');
-                $('.btn').removeClass('btn-outline-info').addClass('btn-outline-light');
+                $('.predictionsBtn').removeClass('btn-outline-info').addClass('btn-outline-light');
                 $('.navbar-brand').removeClass('scrolled');
             }
         }
@@ -67,7 +67,7 @@
         // Disable transparency for dashboard page
         if (window.location.pathname == "/dashboard") {
             $('.navbar').removeClass('navbar-dark bg-transparent').addClass('navbar-light bg-white');
-            $('.btn').removeClass('btn-outline-light').addClass('btn-outline-info');
+            $('.predictionsBtn').removeClass('btn-outline-light').addClass('btn-outline-info');
             $('.navbar-brand').addClass('scrolled');
             document.querySelector('.navbar').style['-webkit-box-shadow'] = '0px 5px 15px 0px rgba(0, 0, 0, 0.1)'; 
             document.querySelector('.navbar').style['box-shadow'] = '0px 5px 15px 0px rgba(0,0,0,0.1)'; 
@@ -77,14 +77,14 @@
             // checks if window is scrolled more than 400px
             if ($(this).scrollTop() > 400) {
                 $('.navbar').removeClass('navbar-dark bg-transparent').addClass('navbar-light bg-white');
-                $('.btn').removeClass('btn-outline-light').addClass('btn-outline-info');
+                $('.predictionsBtn').removeClass('btn-outline-light').addClass('btn-outline-info');
                 $('.navbar-brand').addClass('scrolled');
                 document.querySelector('.navbar').style['-webkit-box-shadow'] = '0px 5px 15px 0px rgba(0, 0, 0, 0.1)'; 
                 document.querySelector('.navbar').style['box-shadow'] = '0px 5px 15px 0px rgba(0,0,0,0.1)'; 
             }
             else {
                 $('.navbar').removeClass('navbar-light bg-white').addClass('navbar-dark bg-transparent');
-                $('.btn').removeClass('btn-outline-info').addClass('btn-outline-light');
+                $('.predictionsBtn').removeClass('btn-outline-info').addClass('btn-outline-light');
                 $('.navbar-brand').removeClass('scrolled');
                 document.querySelector('.navbar').style['-webkit-box-shadow'] = 'none'; 
                 document.querySelector('.navbar').style['box-shadow'] = 'none'; 
