@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "denguelive-47836",
+  "private_key_id": "fe529ed9cd6177968a73ec01fbfaa81737b5acc6",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDGbEehmgpsPU9+\nAopLfRnrKNlwiJ/4SXEJv/PfkZwNDT2qMX1cb/SnYxtb66/w7JsZGM37p3qLY2zg\n6HVKlgEqJ64/hyQKwwOvS5UZikqfGVmKg7Ex0/Q2usQkN3i1a9FyCqdADth3Aa07\nAfB/Pr0bBfButiXHRy5IEu5aO+iDaHmK5N5Wx/+nu7XdRiznAjY3tWhYc6tNfkzI\nfdhgjAbBlCrWNGtlXU5OhCIJg6Frccfp5jssbOwAc563dMFH5aYFKCQo0dMeZviz\n4fwPg/aRrGRIAtstMWats91ZLNHt42+1J5M1GU4rorBMsiZTH+MOsHfrRwE5+6CY\ngF+ioLzPAgMBAAECggEAH6MMGMbIJVHxPBTeRVhWVZmscbZBq1jVCR+YnBZKB1q2\ncPh1wH3+nYxpGag5OUoVwKlPznF5py0xzaUYGSL/CeBMdsdEBo3pfH2p8ZSMfqmQ\nDqHIvY/J6cqwPgYKMlhVNhW0wmXw5aitcjHGTW43a05FyPaJ4igwnOqdI7isQ1Hm\nipzxN9E+gfg3M0cn4WhjVVl4I5RRGI77tVVEeoMPcjMouAe8s0tzV3HYocbwNJ/M\n0jIlp/5u/dkaHFIywATGmWQgremGiqMhdgqryiMGoqyAOus748BwCNZ8/y5fjD7k\nf2HFhoGa9Rdp3RyDpGR1z+vp73di5/XT2ohPlz5mgQKBgQDm/V4F5WTUHK2K4SPv\nHh4hRciF3wZDy7W9VUkCTj7Uu1ImrC37RWVtFVMIowUYh/gJegV4tEQ5w3kwi5WE\nNliAn1WHuQ6k39uNqvQZJg6xOM+dFQOhrvP5p0eTwGMcL3U7Pu0wBfBsZtvpU5C/\nrF0585dKol3VDVWmaSkuZ94D0QKBgQDb6DgPbuCMg4p24SB/fnjjUO4GL0xMLVdN\nZHukuB+L20WBW8N9BNHK3+NBXA1EbqnTKdXrFeYVVq8KDJqAE57zM/k8g1+BxCNw\n84eyQM1Z2iQlhNZbQvGlosvrgwPze6KMs3xZgibJwjxdvpnSCJdbe65ISCCMQoQs\nSPqhpIP+nwKBgA55tEm0TXRJc8qvPzw96+9z2xQgnNjkzDfYP2IIm0Fjl8taoOsN\nN0T1wCVbafdWlgGqBuvAiEICcPbM2IrXiQZOdeKygytr5+th2jg1PVh30fLrHTYl\nq55qkD6/ILbkdnlHAUAwLxfr/j4KAZkxaQo3rLR9plmyozpxfqYs1inxAoGBAIBR\n1zSaPImB0HBiGbaLtDrg5KPTQbBJ3OGaOtP5ZN8VSk+bnkz7XPgHAPMIpe1CrfI8\nPUl6c9ILzQQOKrGFwYCk2VDIUBjGvO+SC6KmUa2WrvT9uJ90RtGiV1/MCagwgr+b\nlHoeike9AcCqEdQPk1KcrywaenOd9MZqp2VfPG59AoGAHCpNJJkOkfma6hrd3bnM\nnDSC5H6l6+jq+sMHtxSqdS7mZJRd5dzjDNe5ruvkIsjI70w1Bl2kd3I9yiSHo47E\nSIZXkUsaXdsUd+1Nr99JKuIKbyONVhFx+xPuZ1CYM4cBSqLtHITxdqtGbGCKoxvc\n0i9kEiahkEbJK4k5JQR2rbE=\n-----END PRIVATE KEY-----\n",
+  "client_email": "bigquery@denguelive-47836.iam.gserviceaccount.com",
+  "client_id": "103413327940361207165",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/bigquery%40denguelive-47836.iam.gserviceaccount.com"
+}
