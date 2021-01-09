@@ -49,6 +49,12 @@ namespace Dengue.Controllers
             return View();
         }
 
+        [Route("/f1")]
+        public ActionResult f1()
+        {
+            return View();
+        }
+
         [Route("/dashboard")]
         public async Task<ActionResult> Dashboard()
         {
